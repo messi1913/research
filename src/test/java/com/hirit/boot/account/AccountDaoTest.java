@@ -5,9 +5,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -31,7 +30,7 @@ class AccountDaoTest {
     AccountRepository repository;
 
 
-    @BeforeEach
+    @Before
     public void init() {
         Account test1 = Account.builder()
             .email("test@test.com")

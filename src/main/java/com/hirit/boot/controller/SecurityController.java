@@ -18,7 +18,7 @@ public class SecurityController {
         return "index";
     }
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     public ModelAndView showAuthenticatedUser(Authentication authentication) {
         User user = (User)authentication.getPrincipal();
         ModelAndView modelAndView = new ModelAndView("user");
@@ -26,7 +26,7 @@ public class SecurityController {
         return modelAndView;
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/admins")
     public ModelAndView showAdminUser(Authentication authentication) {
         User user = (User)authentication.getPrincipal();
         Collection<SimpleGrantedAuthority> authorities =
