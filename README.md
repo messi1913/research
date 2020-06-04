@@ -35,7 +35,7 @@ INSERT INTO oauth_client_details
 VALUES
 (
 	'hirit_admin',
-	'hiritpw',
+	'{bcrypt}$2a$10$Spmbf324qUpmbr1q58PPaejmYQlxveIAjpSYQmMU7nvjthoLqCn9C',
 	null,
 	'read,write',
 	'authorization_code,password, implicit, refresh_token',
@@ -64,7 +64,7 @@ INSERT INTO oauth_client_details
 VALUES
 (
 	'hirit',
-	'hiritpw',
+	'{bcrypt}$2a$10$Spmbf324qUpmbr1q58PPaejmYQlxveIAjpSYQmMU7nvjthoLqCn9C',
 	null,
 	'read',
 	'authorization_code,password, implicit, refresh_token',
