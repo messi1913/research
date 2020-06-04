@@ -17,5 +17,62 @@ create table oauth_client_details (
   additional_information VARCHAR(2000),
   autoapprove VARCHAR(256)
 );
-~~~~
 
+INSERT INTO oauth_client_details
+(
+	client_id,
+	client_secret,
+	resource_ids,
+	scope,
+	authorized_grant_types,
+	web_server_redirect_uri,
+	authorities,
+	access_token_validity,
+	refresh_token_validity,
+	additional_information,
+	autoapprove
+)
+VALUES
+(
+	'hirit_admin',
+	'hiritpw',
+	null,
+	'read,write',
+	'authorization_code,password, implicit, refresh_token',
+	null,
+	'ROLE_OAUTH,ROLE_ADMIN',
+	36000,
+	2592000,
+	null,
+	null
+);
+
+INSERT INTO oauth_client_details
+(
+	client_id,
+	client_secret,
+	resource_ids,
+	scope,
+	authorized_grant_types,
+	web_server_redirect_uri,
+	authorities,
+	access_token_validity,
+	refresh_token_validity,
+	additional_information,
+	autoapprove
+)
+VALUES
+(
+	'hirit',
+	'hiritpw',
+	null,
+	'read',
+	'authorization_code,password, implicit, refresh_token',
+	null,
+	'ROLE_OAUTH,ROLE_ADMIN',
+	36000,
+	2592000,
+	null,
+	null
+);
+~~~~
