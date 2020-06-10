@@ -1,0 +1,12 @@
+oauth2:
+  expired-period: 3600
+  resource-id: hirit-server
+  public-key: -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnWgDV8UTN/7A8LPDOWus
+    XzclbS7BJ4097xruXv+/nVG2nuiGI0ssDRbiyl4OinB0EWXxYq6l3n9SbU48BkWF
+    Xf3Kkcqq34hGkUVba9YACHWckjb63iZ96jbnkMmJ/Ux9VGmUHBry2uS7vLST18XX
+    2tT9p3dw1/A7vdA3IYbzuLmB4vjWTEFN8XsFL6qNNVBQUlePP5uPMAXCQNWCiw8J
+    JEk0bV+KEd/2K7SI9yCQu1wykN1z7z2AZf/AqatyPxoaOfWBs17O1JA3i+eAEEqW
+    XHkUFBbPredgle7jXkQgJBLs7igNCL6DGi8nxogjdY7IF1a8temNwlXJWTBPT2eD
+    mQIDAQAB
+    -----END PUBLIC KEY-----
