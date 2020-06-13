@@ -36,23 +36,27 @@ public class HiritRunner implements ApplicationRunner {
             return;
         }
 
-        Account sangmessi = Account.builder()
+        if(byUser.isEmpty()) {
+            Account sangmessi = Account.builder()
                 .email(email)
                 .password(passwordEncoder.encode("12345"))
                 .userName("sangmessi")
                 .age(36)
                 .build();
 
-        accountRepository.save(sangmessi);
+            accountRepository.save(sangmessi);
+        }
 
-        Account adminUser = Account.builder()
+        if(byUser.isEmpty()) {
+            Account adminUser = Account.builder()
                 .email(admin)
                 .password(passwordEncoder.encode("12345"))
                 .userName("admin_user")
                 .age(26)
                 .build();
 
-        accountRepository.save(adminUser);
+            accountRepository.save(adminUser);
+        }
         // JpaRepository 상속바등면 자동으로 save 있음.
     }
 }
