@@ -21,6 +21,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
+import com.hirit.boot.account.service.AccountService;
+
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -31,6 +33,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final Oauth2Properties oauth2Properties;
     private final AuthenticationManager authenticationManager;
     private final ClientDetailsService clientDetailsService;
+    private final AccountService accountService;
 
     @Bean
     public TokenStore tokenStore() {
@@ -69,7 +72,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(tokenStore())
+            .reuseRefreshTokens(false)
             .authenticationManager(authenticationManager)
+            .userDetailsService(accountService)
             .accessTokenConverter(accessTokenConverter());
     }
 
