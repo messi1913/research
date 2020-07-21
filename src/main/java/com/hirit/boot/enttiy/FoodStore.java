@@ -7,55 +7,33 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Getter
-@Builder
-@NoArgsConstructor @AllArgsConstructor
-@ToString(of = {"id", "name", "rate", "address"})
+@Getter @Setter
+@NoArgsConstructor
+@ToString(of = {"id", "storeName", "rate", "ownerName"})
 public class FoodStore {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Integer id;
 
-    private String name;
-
+    private String storeName;
     private int rate;
-
-    private String address;
+    private String ownerName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "food_id")
+    @JoinColumn(name = "food_type_id")
     private FoodType foodType;
 
-
-    public FoodStore(String name) {
-        this(name, 0, null, null);
-    }
-
-    public FoodStore(String name, String address) {
-        this(name, 0, address, null);
-    }
-
-    public FoodStore(String name, int rate, String address) {
-        this(name, rate, address, null);
-    }
-
-
-    public FoodStore(String name, int rate, String address, FoodType foodType) {
-        this.name = name;
+    public FoodStore(String storeName, int rate, String ownerName, FoodType foodType) {
+        this.storeName = storeName;
         this.rate = rate;
-        this.address = address;
-        if (foodType != null) {
-            changeFoodType(foodType);
-        }
+        this.ownerName = ownerName;
+        changeFoodType(foodType);
     }
 
     private void changeFoodType(FoodType foodType) {

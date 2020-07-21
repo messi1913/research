@@ -9,31 +9,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Getter
-@Builder
-@NoArgsConstructor @AllArgsConstructor
-@ToString(of = {"id", "typeName", "order"})
+@Getter @Setter
+@NoArgsConstructor
+@ToString(of = {"id", "foodTypeName", "foodOrder"})
 public class FoodType {
 
     @Id @GeneratedValue
-    @Column(name = "food_id")
+    @Column(name = "food_type_id")
     private Integer id;
 
-    @Column(unique = true)
-    private String typeName;
-
+    private String foodTypeName;
     private int foodOrder;
 
     @OneToMany(mappedBy = "foodType")
-    private List<FoodStore> foodStoreList = new ArrayList<>();
+    List<FoodStore> foodStoreList = new ArrayList<>();
 
-}
+
+    public FoodType(String foodTypeName, int foodOrder) {
+        this.foodTypeName = foodTypeName;
+        this.foodOrder = foodOrder;
+    }
