@@ -35,4 +35,3 @@ public class FoodType {
         this.foodTypeName = foodTypeName;
         this.foodOrder = foodOrder;
     }
-}
