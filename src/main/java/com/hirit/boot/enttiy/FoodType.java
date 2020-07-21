@@ -20,7 +20,8 @@ import lombok.ToString;
 @ToString(of = {"id", "foodTypeName", "foodOrder"})
 public class FoodType {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "food_type_id")
     private Integer id;
 
@@ -35,3 +36,4 @@ public class FoodType {
         this.foodTypeName = foodTypeName;
         this.foodOrder = foodOrder;
     }
+}
