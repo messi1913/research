@@ -1,24 +1,20 @@
 package com.hirit.boot.food;
 
-import java.util.List;
-import java.util.Objects;
-
+import com.querydsl.core.QueryResults;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQuery;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.support.PageableExecutionUtils;
 
-import com.hirit.boot.enttiy.QFoodStore;
-import com.hirit.boot.enttiy.QFoodType;
-import com.querydsl.core.QueryResults;
-import com.querydsl.core.types.dsl.BooleanExpression;
-import com.querydsl.jpa.impl.JPAQuery;
-import com.querydsl.jpa.impl.JPAQueryFactory;
+import java.util.List;
+import java.util.Objects;
 
-import lombok.RequiredArgsConstructor;
-
-import static com.hirit.boot.enttiy.QFoodStore.*;
-import static com.hirit.boot.enttiy.QFoodType.*;
+import static com.hirit.boot.enttiy.QFoodStore.foodStore;
+import static com.hirit.boot.enttiy.QFoodType.foodType;
 
 @RequiredArgsConstructor
 public class FoodDAOImpl implements FoodDAO {
