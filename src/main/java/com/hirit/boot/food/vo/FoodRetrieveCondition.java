@@ -1,4 +1,4 @@
-package com.hirit.boot.food;
+package com.hirit.boot.food.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -22,6 +22,7 @@ public class FoodType {
     @Column(name = "food_type_id")
     private Integer id;
 
+    @Column(unique = true)
     private String foodTypeName;
     private int foodOrder;
 

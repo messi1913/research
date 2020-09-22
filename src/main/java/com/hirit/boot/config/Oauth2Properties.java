@@ -13,5 +13,7 @@ public class Oauth2Properties {
     private String resourceId;
     private int expiredPeriod;
     private String publicKey;
+    private String clientId;
+    private String clientSecret;
 
 }

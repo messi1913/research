@@ -20,6 +20,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10"
 		classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.9.2'
+
 	}
 }
 
@@ -51,10 +52,6 @@ repositories {
 	mavenCentral()
 }
 
-ext {
-	set('snippetsDir', file("build/generated-snippets"))
-}
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -81,16 +78,40 @@ dependencies {
 	implementation 'com.querydsl:querydsl-jpa'
 	implementation 'com.querydsl:querydsl-apt'
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.8'
+	implementation 'org.modelmapper:modelmapper:2.3.8'
+	asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+}
+
+//REST DOCS
+ext {
+	set('snippetsDir', file("build/generated-snippets"))
 }
 
 test {
 	outputs.dir snippetsDir
-	useJUnitPlatform()
 }
 
 asciidoctor {
 	inputs.dir snippetsDir
 	dependsOn test
+}
+
+bootJar {
+	dependsOn asciidoctor
+	from ("${asciidoctor.outputDir}/html5") {
+		into 'static/docs'
+	}
+}
+
+task copyDocument(type: Copy) {
+	dependsOn asciidoctor
+
+	from file("build/asciidoc/html5/")
+	into file("src/main/resources/static/docs")
+}
+
+build {
+	dependsOn copyDocument
 }
 
 //Query DSL
